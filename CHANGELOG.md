@@ -1,6 +1,6 @@
 # next
 - set `ignoringSemantics` false in `skip` button
-- adds `ImageFilter`
+- adds `ImageFilter`. Now is possible adds blur in the shadow.
 
 # 1.2.8
 - Adds Method 'insert' cannot be called on 'OverlayState?' because it is potentially null. Called using ?. instead.
