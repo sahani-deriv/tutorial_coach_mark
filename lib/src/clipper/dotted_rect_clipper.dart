@@ -1,23 +1,20 @@
 import 'dart:math';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorial_coach_mark/src/clipper/rect_clipper.dart';
 import 'package:tutorial_coach_mark/src/target/target_position.dart';
 
 class DottedRectClipper extends CustomClipper<Path> {
   final double progress;
   final TargetPosition target;
   final double offset;
-  final double radius;
   final double dashWidth; // Width of each dash
   final double dashSpace; // Space between dashes
-  final BorderSide? borderSide;
 
   DottedRectClipper({
     required this.progress,
     required this.target,
     required this.offset,
-    required this.radius,
-    this.borderSide,
     this.dashWidth = 5.0,
     this.dashSpace = 3.0,
   });
@@ -39,7 +36,7 @@ class DottedRectClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(covariant DottedRectClipper oldClipper) {
+  bool shouldReclip(covariant RectClipper oldClipper) {
     return progress != oldClipper.progress;
   }
 

@@ -239,8 +239,8 @@ abstract class AnimatedFocusLightState extends State<AnimatedFocusLight>
                 target:
                     _targetPosition ?? TargetPosition(Size.zero, Offset.zero),
                 offset: _getPaddingFocus(),
-                radius: _targetFocus.radius ?? 0,
-                borderSide: _targetFocus.borderSide,
+                // radius: _targetFocus.radius ?? 0,
+                // borderSide: _targetFocus.borderSide,
               )
             : CircleClipper(
                 _progressAnimated,
