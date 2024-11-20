@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:tutorial_coach_mark/src/clipper/circle_clipper.dart';
+import 'package:tutorial_coach_mark/src/clipper/dotted_rect_clipper.dart';
 import 'package:tutorial_coach_mark/src/clipper/rect_clipper.dart';
 import 'package:tutorial_coach_mark/src/paint/light_paint.dart';
 import 'package:tutorial_coach_mark/src/paint/light_paint_rect.dart';
@@ -232,12 +233,21 @@ abstract class AnimatedFocusLightState extends State<AnimatedFocusLight>
             radius: _targetFocus.radius ?? 0,
             borderSide: _targetFocus.borderSide,
           )
-        : CircleClipper(
-            _progressAnimated,
-            _positioned,
-            _sizeCircle,
-            _targetFocus.borderSide,
-          );
+        : shape == ShapeLightFocus.DottedRect
+            ? DottedRectClipper(
+                progress: _progressAnimated,
+                target:
+                    _targetPosition ?? TargetPosition(Size.zero, Offset.zero),
+                offset: _getPaddingFocus(),
+                radius: _targetFocus.radius ?? 0,
+                borderSide: _targetFocus.borderSide,
+              )
+            : CircleClipper(
+                _progressAnimated,
+                _positioned,
+                _sizeCircle,
+                _targetFocus.borderSide,
+              );
   }
 
   CustomPainter _getPainter(TargetFocus target) {

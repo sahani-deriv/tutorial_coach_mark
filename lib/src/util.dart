@@ -3,7 +3,7 @@ import 'package:tutorial_coach_mark/src/target/target_focus.dart';
 import 'package:tutorial_coach_mark/src/target/target_position.dart';
 
 // ignore: constant_identifier_names
-enum ShapeLightFocus { Circle, RRect }
+enum ShapeLightFocus { Circle, RRect, DottedRect }
 
 TargetPosition? getTargetCurrent(
   TargetFocus target, {
